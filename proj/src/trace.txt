@@ -1,0 +1,391 @@
+@lcflib.a:2019, lcf_start
+  proj_main_loop(argc, argv)
+> proj_main_loop(1, ["player2", NULL])
+  @game.c:109, game_loop
+    vg_init(mode)
+  > vg_init(0x117)
+    @vbe.c:26, vg_init
+      sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)
+    > sys_privctl(SELF, SYS_PRIV_ADD_MEM, addr: 0xeffff430 [0x00000000 - 0x00100000 <1 MiB>])
+    < sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr) -> (ret: 0)
+    @vbe.c:95, get_mode_info
+      sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)
+    > sys_privctl(SELF, SYS_PRIV_ADD_MEM, addr: 0xeffff3c0 [0x00000000 - 0x00100000 <1 MiB>])
+    < sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr) -> (ret: 0)
+    @vbe.c:98, get_mode_info
+      lm_alloc(sizeof(vbe_mode_info_t), &map)
+    < lm_alloc(256, addr: 0xeffff3b0 [phys: 0x0008d000, virt: 0xefb8a000, size: 256 bytes]) -> (ret: 0xefb8a000)
+    @vbe.c:110, get_mode_info
+      sys_int86(&r)
+    > sys_int86(addr: 0xeffff388 [AX: 4f01, BX: 0000, CX: 0117, DX: 0000, ES: 8000, DI: d000])
+    < sys_int86(addr: 0xeffff388 [AX: 004f, BX: 0000, CX: 0117, DX: 0000, ES: 8000, DI: d000]) -> (ret: 0)
+    @vbe.c:117, get_mode_info
+      lm_free(&map)
+    < lm_free(addr: 0xeffff3b0 [phys: 0x0008d000, virt: 0xefb8a000, size: 256 bytes]) -> (ret: 1)
+    @vbe.c:45, vg_init
+      sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)
+    > sys_privctl(SELF, SYS_PRIV_ADD_MEM, addr: 0xeffff430 [0xe0000000 - 0xe0180000 <1.5 MiB>])
+    < sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr) -> (ret: 0)
+    @vbe.c:48, vg_init
+      vm_map_phys(SELF, (void *) mr.mr_base, vram_size)
+    < vm_map_phys(SELF, addr: 0xe0000000, 1.5 MiB) -> (ret: 0xef87b000)
+    @vbe.c:64, vg_init
+      sys_int86(&r)
+    > sys_int86(addr: 0xeffff408 [AX: 4f02, BX: 4117, CX: 0000, DX: 0000, ES: 0000, DI: 0000])
+    < sys_int86(addr: 0xeffff408 [AX: 004f, BX: 4117, CX: 0000, DX: 0000, ES: 0000, DI: 0000]) -> (ret: 0)
+  < vg_init(0x117) -> (ret: 0x98cb000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x891e850, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x891e850, XPM_5_6_5, addr: 0xeffff4f0 [2000x2000 : 8000000 bytes]) -> (ret: 0xa07d000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8920b94, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8920b94, XPM_5_6_5, addr: 0xeffff4f0 [60x131 : 15720 bytes]) -> (ret: 0x98bd000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x89211a4, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x89211a4, XPM_5_6_5, addr: 0xeffff4f0 [200x100 : 40000 bytes]) -> (ret: 0x98c1000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8920b94, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8920b94, XPM_5_6_5, addr: 0xeffff4f0 [60x131 : 15720 bytes]) -> (ret: 0xa06d000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8921738, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8921738, XPM_5_6_5, addr: 0xeffff4f0 [114x115 : 26220 bytes]) -> (ret: 0xa826000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x892446c, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x892446c, XPM_5_6_5, addr: 0xeffff4f0 [132x61 : 16104 bytes]) -> (ret: 0xa82d000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8926ccc, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8926ccc, XPM_5_6_5, addr: 0xeffff4f0 [115x115 : 26450 bytes]) -> (ret: 0xa832000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8929ad8, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8929ad8, XPM_5_6_5, addr: 0xeffff4f0 [60x131 : 15720 bytes]) -> (ret: 0xa071000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x892a0a4, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x892a0a4, XPM_5_6_5, addr: 0xeffff4f0 [114x115 : 26220 bytes]) -> (ret: 0xa83c000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x892cdd8, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x892cdd8, XPM_5_6_5, addr: 0xeffff4f0 [132x61 : 16104 bytes]) -> (ret: 0xa843000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x892f638, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x892f638, XPM_5_6_5, addr: 0xeffff4f0 [115x115 : 26450 bytes]) -> (ret: 0xa848000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8932444, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8932444, XPM_5_6_5, addr: 0xeffff4f0 [90x131 : 23580 bytes]) -> (ret: 0xa852000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x893587c, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x893587c, XPM_5_6_5, addr: 0xeffff4f0 [129x91 : 23478 bytes]) -> (ret: 0xa858000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8938bac, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8938bac, XPM_5_6_5, addr: 0xeffff4f0 [130x89 : 23140 bytes]) -> (ret: 0xa85e000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x893bee8, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x893bee8, XPM_5_6_5, addr: 0xeffff4f0 [91x130 : 23660 bytes]) -> (ret: 0xa864000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x893f2f0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x893f2f0, XPM_5_6_5, addr: 0xeffff4f0 [90x131 : 23580 bytes]) -> (ret: 0xa86a000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8942728, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8942728, XPM_5_6_5, addr: 0xeffff4f0 [129x91 : 23478 bytes]) -> (ret: 0xa870000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8945a58, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8945a58, XPM_5_6_5, addr: 0xeffff4f0 [130x89 : 23140 bytes]) -> (ret: 0xa876000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8948d94, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8948d94, XPM_5_6_5, addr: 0xeffff4f0 [91x130 : 23660 bytes]) -> (ret: 0xa87c000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894c1a0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894c1a0, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa075000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894c1a0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894c1a0, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa076000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894c2a0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894c2a0, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa077000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894c3bc, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894c3bc, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa078000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894c4c4, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894c4c4, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa079000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894c5e0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894c5e0, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa07a000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894c6e4, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894c6e4, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa07b000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894c800, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894c800, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa07c000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894c908, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894c908, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa81f000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894ca24, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894ca24, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa820000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894cb24, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894cb24, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa821000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894cc24, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894cc24, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa822000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894cd24, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894cd24, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa823000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894ce24, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894ce24, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa824000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894cf24, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894cf24, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa825000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894d024, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894d024, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa831000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894d124, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894d124, XPM_5_6_5, addr: 0xeffff4f0 [39x39 : 3042 bytes]) -> (ret: 0xa839000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894d224, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894d224, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa83a000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894d7b4, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894d7b4, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa84f000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894dee0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894dee0, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa882000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894e470, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894e470, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa884000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894eb9c, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894eb9c, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa886000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894f12c, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894f12c, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa888000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894f858, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894f858, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa88a000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x894fde8, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x894fde8, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa88c000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8950514, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8950514, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa88e000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8950cf4, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8950cf4, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa890000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8951494, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8951494, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa892000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8951bc8, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8951bc8, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa894000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x89522d4, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x89522d4, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa896000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x89529f4, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x89529f4, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa898000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x89530f0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x89530f0, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa89a000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8953814, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8953814, XPM_5_6_5, addr: 0xeffff4f0 [60x60 : 7200 bytes]) -> (ret: 0xa89c000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8953ed0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8953ed0, XPM_5_6_5, addr: 0xeffff4f0 [21x46 : 1932 bytes]) -> (ret: 0xa847000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8953f94, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8953f94, XPM_5_6_5, addr: 0xeffff4f0 [21x46 : 1932 bytes]) -> (ret: 0xa847800)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8954058, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8954058, XPM_5_6_5, addr: 0xeffff4f0 [21x46 : 1932 bytes]) -> (ret: 0xa851000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x895411c, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x895411c, XPM_5_6_5, addr: 0xeffff4f0 [21x46 : 1932 bytes]) -> (ret: 0xa851800)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x89541e0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x89541e0, XPM_5_6_5, addr: 0xeffff4f0 [21x46 : 1932 bytes]) -> (ret: 0xa89e000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x89542a4, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x89542a4, XPM_5_6_5, addr: 0xeffff4f0 [21x46 : 1932 bytes]) -> (ret: 0xa89e800)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8954368, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8954368, XPM_5_6_5, addr: 0xeffff4f0 [21x46 : 1932 bytes]) -> (ret: 0xa89f000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x895442c, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x895442c, XPM_5_6_5, addr: 0xeffff4f0 [21x46 : 1932 bytes]) -> (ret: 0xa89f800)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x89544f0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x89544f0, XPM_5_6_5, addr: 0xeffff4f0 [21x46 : 1932 bytes]) -> (ret: 0xa8a0000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x89545b4, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x89545b4, XPM_5_6_5, addr: 0xeffff4f0 [21x46 : 1932 bytes]) -> (ret: 0xa8a0800)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8954678, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8954678, XPM_5_6_5, addr: 0xeffff4f0 [21x46 : 1932 bytes]) -> (ret: 0xa8a1000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x895473c, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x895473c, XPM_5_6_5, addr: 0xeffff4f0 [138x42 : 11592 bytes]) -> (ret: 0xa8a2000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x895499c, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x895499c, XPM_5_6_5, addr: 0xeffff4f0 [100x22 : 4400 bytes]) -> (ret: 0xa8a5000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8954a00, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8954a00, XPM_5_6_5, addr: 0xeffff4f0 [142x46 : 13064 bytes]) -> (ret: 0xa8a7000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8954e90, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8954e90, XPM_5_6_5, addr: 0xeffff4f0 [100x22 : 4400 bytes]) -> (ret: 0xa8ab000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8954ef0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8954ef0, XPM_5_6_5, addr: 0xeffff4f0 [712x85 : 121040 bytes]) -> (ret: 0xa8ae000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x89556e4, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x89556e4, XPM_5_6_5, addr: 0xeffff4f0 [130x46 : 11960 bytes]) -> (ret: 0xa8cc000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x89557a8, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x89557a8, XPM_5_6_5, addr: 0xeffff4f0 [129x46 : 11868 bytes]) -> (ret: 0xa8cf000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x895586c, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x895586c, XPM_5_6_5, addr: 0xeffff4f0 [86x46 : 7912 bytes]) -> (ret: 0xa8d2000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8955930, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8955930, XPM_5_6_5, addr: 0xeffff4f0 [20x20 : 800 bytes]) -> (ret: 0xa8ad000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8955998, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8955998, XPM_5_6_5, addr: 0xeffff4f0 [200x100 : 40000 bytes]) -> (ret: 0xa8d4000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8955998, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8955998, XPM_5_6_5, addr: 0xeffff4f0 [200x100 : 40000 bytes]) -> (ret: 0xa8de000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8955bc0, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8955bc0, XPM_5_6_5, addr: 0xeffff4f0 [200x100 : 40000 bytes]) -> (ret: 0xa8e8000)
+  @sprite.c:36, loadSprite
+    xpm_load(xpm, type, &img)
+  > xpm_load(addr: 0x8955de8, XPM_5_6_5, addr: 0xeffff4f0)
+  < xpm_load(addr: 0x8955de8, XPM_5_6_5, addr: 0xeffff4f0 [884x84 : 148512 bytes]) -> (ret: 0xa8f2000)
+  @utils.c:43, util_sys_inb
+    sys_inb(port, &temp_value)
+  > sys_inb(0x64, addr: 0xeffff4c0)
+  < sys_inb(0x64, addr: 0xeffff4c0 [0x1c = 0b00011100])
+  @kbc.c:87, kbc_cmd
+    sys_outb(KBC_CMD_REG, cmd)
+  > sys_outb(0x64, 0xd4 = 0b11010100)
+  @utils.c:43, util_sys_inb
+    sys_inb(port, &temp_value)
+  > sys_inb(0x64, addr: 0xeffff4c0)
+  < sys_inb(0x64, addr: 0xeffff4c0 [0x1c = 0b00011100])
+  @kbc.c:108, kbc_write
+    sys_outb(KBC_ARG_REG, data)
+  > sys_outb(0x60, 0xf4 = 0b11110100)
+  @utils.c:43, util_sys_inb
+    sys_inb(port, &temp_value)
+  > sys_inb(0x64, addr: 0xeffff4bc)
+  < sys_inb(0x64, addr: 0xeffff4bc [0x1c = 0b00011100])
+  @kbc.c:137, kbc_read
+    micros_to_ticks(20000)
+  @kbc.c:137, kbc_read
+    tickdelay(micros_to_ticks(20000))
+  > tickdelay(1 [16.7 ms])
+  @utils.c:43, util_sys_inb
+    sys_inb(port, &temp_value)
+  > sys_inb(0x64, addr: 0xeffff4bc)
+  < sys_inb(0x64, addr: 0xeffff4bc [0x1c = 0b00011100])
+  @kbc.c:137, kbc_read
+    micros_to_ticks(20000)
+  @kbc.c:137, kbc_read
+    tickdelay(micros_to_ticks(20000))
+  > tickdelay(1 [16.7 ms])
+  @utils.c:43, util_sys_inb
+    sys_inb(port, &temp_value)
+  > sys_inb(0x64, addr: 0xeffff4bc)
+  < sys_inb(0x64, addr: 0xeffff4bc [0x1c = 0b00011100])
+  @kbc.c:137, kbc_read
+    micros_to_ticks(20000)
+  @kbc.c:137, kbc_read
+    tickdelay(micros_to_ticks(20000))
+  > tickdelay(1 [16.7 ms])
+  @utils.c:43, util_sys_inb
+    sys_inb(port, &temp_value)
+  > sys_inb(0x64, addr: 0xeffff4bc)
+  < sys_inb(0x64, addr: 0xeffff4bc [0x1c = 0b00011100])
+  @kbc.c:137, kbc_read
+    micros_to_ticks(20000)
+  @kbc.c:137, kbc_read
+    tickdelay(micros_to_ticks(20000))
+  > tickdelay(1 [16.7 ms])
+< proj_main_loop(1, ["player2", NULL]) -> (ret: 1)
